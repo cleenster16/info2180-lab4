@@ -7,8 +7,9 @@ window.onload = function() {
     
     for (let i=0; i<boundary.length; i++){
         boundary[i].addEventListener("mouseover", onBoundaryMouseOver);
-        
     }
+
+    start.addEventListener("click", onStartClick);
 
     end.addEventListener("mouseover", onEndMouseOver);
 
@@ -24,6 +25,14 @@ window.onload = function() {
             alert("You Win.");
         }else{
             alert("You Lose!");
+        }
+    }
+
+    function onStartClick(){
+        for (let i=0; i<boundary.length; i++){
+            if (boundary[i].classList.contains('youlose')){
+                boundary[i].classList.remove('youlose');
+            }
         }
     }
 

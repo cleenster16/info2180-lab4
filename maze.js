@@ -1,8 +1,9 @@
 window.onload = function() {
     
-    var boundary = document.querySelectorAll(".boundary");
-    var start = document.querySelector("#start");
-    var end = document.querySelector("#end");
+    let boundary = document.querySelectorAll(".boundary");
+    let start = document.querySelector("#start");
+    let end = document.querySelector("#end");
+    let status = document.getElementById("status");
     let winStatus = true;
     
     for (let i=0; i<boundary.length; i++){
@@ -22,16 +23,19 @@ window.onload = function() {
 
     function onEndMouseOver(){
         if (winStatus === true){
-            alert("You Win.");
+            status.innerHTML = "You Win!";
         }else{
-            alert("You Lose!");
+            status.innerHTML = "You Lose!";
         }
     }
 
     function onStartClick(){
+        
         for (let i=0; i<boundary.length; i++){
             if (boundary[i].classList.contains('youlose')){
                 boundary[i].classList.remove('youlose');
+                status.innerHTML = 'Move your mouse over the "S" to begin.'; 
+                winStatus = true;
             }
         }
     }
